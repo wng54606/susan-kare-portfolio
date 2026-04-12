@@ -10,27 +10,31 @@
     <script src="main.js"></script>
 
     <link rel="stylesheet" href="style.css">
+    <script src="main.js"></script>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Jacquarda+Bastarda+9+Charted&family=Micro+5&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.typekit.net/zhr1gdw.css">
 
 </head>
 
 <body>
 <header class="menu-bar">
     <nav class="menu-container">
-        <a href="index.html" class="logo jacquarda-bastarda-9-charted-regular">
+        <a href="index.html" class="logo argent-pixel-italic">
             Susan Kare
         </a>
-        <ul class="menu micro-5-regular">
+        <ul class="menu argent-pixel-regular">
             <li class="menu-item">
                 <span>Works</span>
                 <ul class="dropdown">
-                    <li><a href="works.html">All Works</a></li>
+                    <li><a href="works.html">All</a></li>
                     <li><a href="works.html#icons">Icons</a></li>
                     <li><a href="works.html#fonts">Fonts</a></li>
+                    <li><a href="works.html#typography">Typography</a></li>
                 </ul>
+            </li>
+
+            <li class="menu-item">
+                <span>About</span>
             </li>
 
             <li class="menu-item">
@@ -42,6 +46,43 @@
         </ul>
     </nav>
 </header>
+
+<main class="desktop argent-pixel-regular">
+    <div class="desktop-icon disk">
+
+        <div class="icon-graphic">
+            <img src="mac icons_file.svg" alt="disk icon">
+            <span class="desktop-icon-name">Options</span>
+
+            <ul class="icon-dropdown">
+                <li>Calculator</li>
+                <li>Puzzle</li>
+                <li>Note Pad</li>
+                <li>Control Panel</li>
+            </ul>
+        </div>
+    </div>
+    <div class="desktop-icon trash">
+        <img src="mac icons_trash.svg" alt="disk icon">
+        <span class="desktop-icon-name">Trash</span>
+    </div>
+
+    <div class="mac-window">
+        <div class="title-bar">
+            <div class="window-controls">
+                <span class="box">
+                </span>
+            </div>
+            <span class="title argent-pixel-regular">
+                welcome
+            </span>
+        </div>
+        <div class="canvas-area"> 
+            <img class="hello-gif" src="hello.gif" alt="Animated GIF">
+        </div>
+    </div>
+</main>
+
 </body>
 
 </html>
