@@ -24,8 +24,45 @@ document.addEventListener("mousemove", (e) => {
   windowEl.style.top = `${e.clientY - offsetY}px`;
 });
 
+const trash = document.querySelector(".trash");
+
 document.addEventListener("mouseup", () => {
+  if (!isDragging) return;
+
   isDragging = false;
+
+  const windowRect = windowEl.getBoundingClientRect();
+  const trashRect = trash.getBoundingClientRect();
+
+  const isOverlapping =
+    windowRect.right > trashRect.left &&
+    windowRect.left < trashRect.right &&
+    windowRect.bottom > trashRect.top &&
+    windowRect.top < trashRect.bottom;
+
+  if (isOverlapping) {
+    // delete window
+    windowEl.style.display = "none";
+  }
 });
 
 })
+
+/* WORKS - ICONS */
+
+const icons = document.querySelectorAll(".icon-item");
+const previewImg = document.getElementById("preview-image");
+const previewName = document.getElementById("preview-name");
+const previewDesc = document.getElementById("preview-desc");
+
+icons.forEach(icon => {
+  icon.addEventListener("click", () => {
+    const img = icon.querySelector("img").src;
+    const name = icon.dataset.name;
+    const desc = icon.dataset.desc;
+
+    previewImg.src = img;
+    previewName.textContent = name;
+    previewDesc.textContent = desc;
+  });
+});

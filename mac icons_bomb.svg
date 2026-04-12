@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 129.71 150.33">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #231f20;
+      }
+
+      .cls-2 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <polygon class="cls-1" points="97.52 44.25 85.88 44.25 85.88 47.99 75.2 47.99 75.2 44.25 67.73 44.25 67.73 40.41 49.57 40.41 49.57 43.93 45.73 43.93 45.73 48.05 42.08 48.05 42.08 58.97 31.7 58.97 31.7 69.91 23.99 69.91 23.99 73.66 16.63 73.66 16.63 80.56 12.97 80.56 12.97 87.49 9.43 87.49 9.43 114.22 12.97 114.22 12.97 121.23 16.63 121.23 16.63 128.43 23.99 128.43 23.99 132.1 31.7 132.1 31.7 135.56 56.94 135.56 56.94 132.1 64.46 132.1 64.46 128.43 71.59 128.43 71.59 121.23 75 121.23 75 114.22 78.61 114.22 78.61 87.49 75 87.49 75 80.56 71.59 80.56 71.59 73.66 64.46 73.66 64.46 69.91 56.94 69.91 56.94 58.97 45.78 58.97 45.78 48.1 49.8 48.1 49.8 44.43 67.56 44.43 67.56 48.27 75.06 48.27 75.06 52 86.02 52 86.02 48.27 97.52 48.27 97.52 44.25"/>
+  <rect class="cls-1" x="89.58" y="33.19" width="4.07" height="4.16" transform="translate(183.23 70.55) rotate(180)"/>
+  <rect class="cls-1" x="85.86" y="26.07" width="4.07" height="4.16" transform="translate(175.78 56.31) rotate(180)"/>
+  <rect class="cls-1" x="82.1" y="18.78" width="4.07" height="4.16" transform="translate(168.26 41.72) rotate(180)"/>
+  <rect class="cls-1" x="82.1" y="37.02" width="4.07" height="4.16" transform="translate(168.27 78.21) rotate(180)"/>
+  <rect class="cls-1" x="74.78" y="33.28" width="4.07" height="4.16" transform="translate(153.63 70.72) rotate(180)"/>
+  <rect class="cls-1" x="67.47" y="29.53" width="4.07" height="4.16" transform="translate(139.01 63.23) rotate(180)"/>
+  <rect class="cls-1" x="100.24" y="29.58" width="4.07" height="4.16" transform="translate(204.55 63.33) rotate(180)"/>
+  <rect class="cls-1" x="104.08" y="25.97" width="4.07" height="4.16" transform="translate(212.23 56.1) rotate(180)"/>
+  <rect class="cls-1" x="107.61" y="22.32" width="4.07" height="4.16" transform="translate(219.28 48.81) rotate(180)"/>
+  <rect class="cls-1" x="111.35" y="18.8" width="4.07" height="4.16" transform="translate(226.76 41.77) rotate(180)"/>
+  <rect class="cls-1" x="103.83" y="40.41" width="4.07" height="4.16" transform="translate(211.72 84.98) rotate(180)"/>
+  <rect class="cls-1" x="111.44" y="40.5" width="4.07" height="4.16" transform="translate(226.95 85.16) rotate(180)"/>
+  <rect class="cls-1" x="118.85" y="40.35" width="4.07" height="4.16" transform="translate(241.77 84.87) rotate(180)"/>
+  <rect class="cls-1" x="104.01" y="51.49" width="4.07" height="4.16" transform="translate(212.09 107.14) rotate(180)"/>
+  <rect class="cls-1" x="107.64" y="55.19" width="4.07" height="4.16" transform="translate(219.35 114.55) rotate(180)"/>
+  <rect class="cls-1" x="111.37" y="58.98" width="4.07" height="4.16" transform="translate(226.8 122.13) rotate(180)"/>
+  <rect class="cls-1" x="114.81" y="62.64" width="4.07" height="4.16" transform="translate(233.68 129.44) rotate(180)"/>
+  <rect class="cls-1" x="93.02" y="55.06" width="4.07" height="4.16" transform="translate(190.1 114.29) rotate(180)"/>
+  <rect class="cls-1" x="93.03" y="62.49" width="4.07" height="4.16" transform="translate(190.12 129.14) rotate(180)"/>
+  <rect class="cls-1" x="92.94" y="69.87" width="4.07" height="4.16" transform="translate(189.95 143.91) rotate(180)"/>
+  <rect class="cls-1" x="82.17" y="55.07" width="4.07" height="4.16" transform="translate(168.4 114.3) rotate(180)"/>
+  <rect class="cls-1" x="78.38" y="59.11" width="4.07" height="4.16" transform="translate(160.83 122.39) rotate(180)"/>
+  <rect class="cls-1" x="74.63" y="62.82" width="4.07" height="4.16" transform="translate(153.33 129.8) rotate(180)"/>
+  <rect class="cls-2" x="23.75" y="87.7" width="4.72" height="4.72"/>
+  <rect class="cls-2" x="19.81" y="95.17" width="4.72" height="11.9"/>
+  <rect class="cls-2" x="23.53" y="109.72" width="4.72" height="4.72"/>
+  <rect class="cls-2" x="30.77" y="116.82" width="4.72" height="4.72"/>
+</svg>

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Susan Kare</title>
+    <title>Icons - Susan Kare</title>
 
     <link rel="stylesheet" href="style.css">
     <script src="main.js"></script>
@@ -45,43 +45,35 @@
 </header>
 
 <main class="desktop argent-pixel-regular">
-    <div class="desktop-icon disk">
+    
+    <div id="icons"></div>
+    <div class="windows-container">
 
-        <div class="icon-graphic">
-            <img src="mac icons_file.svg" alt="disk icon">
-        </div>
-           
-        <span class="desktop-icon-name">Options</span>
-
-        <ul class="icon-dropdown">
-            <li>Welcome</li>
-            <li>Calculator</li>
-            <li>Puzzle</li>
-            <li>Note Pad</li>
-            <li>Control Panel</li>
-        </ul>
-    </div>
-
-    <div class="desktop-icon trash">
-        <img src="mac icons_trash.svg" alt="disk icon">
-        <span class="desktop-icon-name">Trash</span>
-    </div>
-
-    <div class="mac-window">
-        <div class="title-bar">
-            <div class="window-controls">
-                <span class="box">
-                </span>
+        <div class="mac-window library-window">
+            <div class="title-bar">
+                <span class="title">icons</span>
             </div>
-            <span class="title argent-pixel-regular">
-                welcome
-            </span>
+            <div class="window-content icon-library">
+                <div class="icon-item" data-name="Happy Mac" data-desc="The original Macintosh boot icon.">
+                    <img src="icons/happy.png">
+
+                <div class="icon-item" data-name="Trash" data-desc="The original Macintosh boot icon.">
+                    <img src="mac icons_trash.svg">
+
+                </div>
+            </div>
         </div>
 
-        <div class="canvas-area"> 
-            <img class="hello-gif" src="hello.gif" alt="Animated GIF">
+        <div class="mac-window preview-window">
+            <img id="preview-image" src="mac icons_trash.svg">
+            <h2 id="preview-name">Trash Can</h2>
+            <p id="preview-desc">
+                The original Macintosh boot icon.
+            </p>
         </div>
     </div>
+    </div>
+
 </main>
 
 </body>

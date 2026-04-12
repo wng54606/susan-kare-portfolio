@@ -50,12 +50,15 @@ body {
   cursor: pointer;
 }
 
-.menu-item span {
+.menu-item a {
+  text-decoration: none;
+  color: black;
   padding: 4px 8px;
+  display: inline-block;
 }
 
-.menu-item:hover span {
-  background: black;
+.menu-item:hover > a {
+  background:black;
   color: white;
 }
 
@@ -103,6 +106,7 @@ body {
   text-align: center;
   font-size: 20px;
   color: black;
+  padding: 6px 4px;
 }
 
   .desktop-icon svg {
@@ -117,20 +121,19 @@ body {
     color:white;
   }
 
-.desktop-icon-name {
-  background:#f9f9f9;
-}
-
 .disk{
   top:100px;
   right:80px;
 }
 
 .icon-dropdown {
+  display: none;
   position: absolute;
   top: 100%;
   left: 0;
+  
   background: white;
+  color: black;
   border: 2px solid black;
   list-style: none;
   padding: 4px 0;
@@ -156,6 +159,7 @@ body {
 .trash {
   bottom: 40px;
   right: 80px;
+  z-index: 10;
 }
 
 .mac-window {
@@ -164,6 +168,7 @@ body {
   background: #f9f9f9;
   border: 2px solid black;
   box-shadow: 2px 2px 0px black;
+  z-index: 1;
 }
 
 .title-bar {
@@ -204,10 +209,65 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: move;
 }
 
 .hello-gif {
   max-width: 90%;
   height: auto;
   display: block;
+}
+
+.trash.drag-over {
+  background: black;
+  color: white;
+}
+
+.trash.drag-over img {
+  filter: invert(1);
+}
+
+/* WORKS - ICONS */
+.windows-container {
+  display: flex;
+  gap: 40px;
+}
+
+.library-window {
+  width: 300px;
+  height: 500px;
+}
+
+.icon-library {
+  padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  overflow-y: scroll;
+}
+
+.icon-item {
+  cursor: pointer;
+  text-align: center;
+}
+
+.icon-item img {
+  width: 40px;
+  image-rendering: pixelated;
+}
+
+.preview-window {
+  width: 400px;
+  height: 500px;
+}
+
+.preview-content {
+  padding: 20px;
+  text-align: center;
+}
+
+#preview-image {
+  width: 120px;
+  image-rendering: pixelated;
+  margin-bottom: 10px;
 }
