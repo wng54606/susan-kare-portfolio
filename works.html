@@ -23,11 +23,6 @@
         <ul class="menu argent-pixel-regular">
             <li class="menu-item">
                 <a href="works.html">Works</a>
-                <ul class="dropdown">
-                    <li><a href="works.html">All</a></li>
-                    <li><a href="works.html#icons">Icons</a></li>
-                    <li><a href="works.html#typography">Typography</a></li>
-                </ul>
             </li>
 
             <li class="menu-item">
@@ -35,10 +30,7 @@
             </li>
 
             <li class="menu-item">
-                <a href="#">Contact</a>
-                <ul class="dropdown">
-                    <li><a href="contact.html">Email</a></li>
-                </ul>
+                <a href="contact.html">Contact</a>
             </li>
         </ul>
     </nav>
@@ -46,32 +38,334 @@
 
 <main class="desktop argent-pixel-regular">
     
-    <div id="icons"></div>
-    <div class="windows-container">
+    <div class="desktop-icon works-icons" id="open-icons">
+        <img src="dogcow.svg">
+        <span>Icons</span>
+    </div>
 
-        <div class="mac-window library-window">
-            <div class="title-bar">
-                <span class="title">icons</span>
-            </div>
-            <div class="window-content icon-library">
-                <div class="icon-item" data-name="Happy Mac" data-desc="The original Macintosh boot icon.">
-                    <img src="icons/happy.png">
+    <div class="desktop-icon works-typography" id="open-typography">
+        <img src="font kit.svg">
+        <span>Typography</span>
+    </div>
 
-                <div class="icon-item" data-name="Trash" data-desc="The original Macintosh boot icon.">
-                    <img src="mac icons_trash.svg">
+    <div class="desktop-icon works-applications" id="open-applications">
+        <img src="mac happy.svg">
+        <span>Applications</span>
+    </div>
 
-                </div>
-            </div>
+<!-- ICON WINDOWS -->
+    <div class="mac-window library-window hidden" id="icons-library">
+        <div class="title-bar">
+            <span class="box"></span>
+            <span class="title">library</span>
         </div>
 
-        <div class="mac-window preview-window">
-            <img id="preview-image" src="mac icons_trash.svg">
-            <h2 id="preview-name">Trash Can</h2>
-            <p id="preview-desc">
-                The original Macintosh boot icon.
-            </p>
+        <div class="window-content icon-library">
+            <div class="icon-item" data-name="Mac Happy" 
+                data-desc="A smiling computer icon shown during startup on early Macintosh systems. It signaled that the system was booting correctly.">
+                    <img src="mac happy.svg">
+            </div>
+
+            <div class="icon-item" data-name="Mac Sad" 
+                data-desc="A frowning version of the Mac icon indicating a system error or crash. It appeared when the computer failed to start properly.">
+                    <img src="mac sad.png">
+            </div>
+
+            <div class="icon-item" data-name="Mac Working" 
+                data-desc="A simple animated icon showing the system is processing. It reassured users that something was happening.">
+                    <img src="mac working.svg">
+            </div>
+
+            <div class="icon-item" data-name="Alert" 
+                data-desc="A warning symbol used to indicate errors or important messages. It draws attention to issues that need user action.">
+                    <img src="alert.svg">
+            </div>
+
+            <div class="icon-item" data-name="Prompt" 
+                data-desc="A command-line style icon representing system input. It suggests direct interaction with the computer.">
+                    <img src="prompt.svg">
+            </div>
+
+            <div class="icon-item" data-name="Apple Link" 
+                data-desc="An icon representing Apple’s early networking system. It symbolizes connection and file sharing.">
+                    <img src="apple link.png">
+            </div>
+                
+            <div class="icon-item" data-name="Bomb" 
+                data-desc="A classic crash icon shown when the system encountered a fatal error. It became one of the most iconic Mac symbols.">
+                    <img src="bomb.svg">
+            </div>
+
+            <div class="icon-item" data-name="Box" 
+                data-desc="A generic container icon used to represent storage or files. It suggests organization and grouping.">
+                    <img src="box.png">
+            </div>
+
+            <div class="icon-item" data-name="Briefcase" 
+                data-desc="Represents work-related files or business tools. Often associated with productivity.">
+                    <img src="briefcase.png">
+            </div>
+
+            <div class="icon-item" data-name="Bullentin Board" 
+                data-desc="A visual metaphor for posting notes or shared information. It represents communication and updates.">
+                    <img src="bulletin board.png">
+            </div>
+
+            <div class="icon-item" data-name="Calendar" 
+                data-desc="An icon for scheduling and dates. It helps users manage time and events.">
+                    <img src="calendar.png">
+            </div>
+
+            <div class="icon-item" data-name="Command" 
+                data-desc="TThe symbol for the Command key. It became a defining part of Mac keyboard shortcuts.">
+                    <img src="command.svg">
+            </div>
+
+            <div class="icon-item" data-name="Compress" 
+                data-desc="Represents file compression or archiving. Used to reduce file size or bundle files together.">
+                    <img src="compressed.png">
+            </div>
+
+            <div class="icon-item" data-name="Compressed File" 
+                data-desc="A visual indicator of a zipped or archived file. Suggests stored or packaged data.">
+                    <img src="compressed file.png">
+            </div>
+
+            <div class="icon-item" data-name="Desk Drawer" 
+                data-desc="A storage metaphor representing hidden or saved items. Inspired by physical office furniture.">
+                    <img src="desk drawer.png">
+            </div>
+
+            <div class="icon-item" data-name="Direct Access" 
+                data-desc="Indicates a shortcut or quick link to a file. Designed for efficiency.">
+                    <img src="direct access.png">
+            </div>
+
+            <div class="icon-item" data-name="Dogcow" 
+                data-desc="The dogcow was originally created in 1983 as part of the Cairo font as the glyph for the character 'z'. It visually resembles a dog with a nose and spots like a cow. Dogcows do not 'mooo' like a cow or 'woof' like a dog, they say Moof!">
+                    <img src="dogcow.svg">
+            </div>
+
+            <div class="icon-item" data-name="Early Access" 
+                data-desc="Represents preview or beta content. Suggests something not yet finalized.">
+                    <img src="early access.png">
+            </div>
+
+            <div class="icon-item" data-name="Fax" 
+                data-desc="An icon for sending documents via fax. Reflects older communication technology.">
+                    <img src="fax.png">
+            </div>
+
+            <div class="icon-item" data-name="Fax To" 
+                data-desc="Specifically indicates sending a fax to someone. A directional version of the fax icon.">
+                    <img src="fax to.png">
+            </div>
+
+            <div class="icon-item" data-name="File" 
+                data-desc="A basic document icon representing a single file. One of the most fundamental UI elements.">
+                    <img src="file.png">
+            </div>
+
+            <div class="icon-item" data-name="File-Graphic" 
+                data-desc="Represents an image-based file. Used for visual media.">
+                    <img src="file-graphic.png">
+            </div>
+
+            <div class="icon-item" data-name="File-Text" 
+                data-desc="Indicates a text document. Used for written content.">
+                    <img src="file-text.svg">
+            </div>
+
+            <div class="icon-item" data-name="File-Vector" 
+                data-desc="Represents vector-based graphics. Suggests scalable design files.">
+                    <img src="file-vector.svg">
+            </div>
+
+            <div class="icon-item" data-name="Folder" 
+                data-desc="A container for organizing files. One of the most recognizable UI metaphors.">
+                    <img src="folder.png">
+            </div>
+
+            <div class="icon-item" data-name="Folder Speedy" 
+                data-desc="A stylized folder suggesting fast access. Represents efficiency.">
+                    <img src="folder speedy.png">
+            </div>
+
+            <div class="icon-item" data-name="Font Kit" 
+                data-desc="Represents font collections or typography tools. Used for managing typefaces.">
+                    <img src="font kit.svg">
+            </div>
+
+            <div class="icon-item" data-name="Font Stack" 
+                data-desc="A layered representation of multiple fonts. Suggests variety and selection.">
+                    <img src="font stack.png">
+            </div>
+
+            <div class="icon-item" data-name="Global" 
+                data-desc="A globe icon representing worldwide access or internet. Suggests connectivity.">
+                    <img src="global.png">
+            </div>
+
+            <div class="icon-item" data-name="Mail" 
+                data-desc="An envelope symbol for email or messaging. Represents communication.">
+                    <img src="mail.png">
+            </div>
+
+            <div class="icon-item" data-name="New" 
+                data-desc="Indicates creating a new file or document. A symbol of starting fresh.">
+                    <img src="new.svg">
+            </div>
+
+            <div class="icon-item" data-name="Paint Bucket" 
+                data-desc="Represents filling areas with color. Common in design tools.">
+                    <img src="paint bucket.png">
+            </div>
+
+            <div class="icon-item" data-name="Print" 
+                data-desc="A printer icon indicating output to paper. Used for physical copies.">
+                    <img src="print.png">
+            </div>
+
+            <div class="icon-item" data-name="Save" 
+                data-desc="Represents storing your work. One of the most important UI actions.">
+                    <img src="save.svg">
+            </div>
+
+            <div class="icon-item" data-name="Save As" 
+                data-desc="Allows saving a new version of a file. Useful for duplication or renaming.">
+                    <img src="save as.svg">
+            </div>
+
+            <div class="icon-item" data-name="Save Missing" 
+                data-desc="Indicates a failed or missing save. Suggests an error state.">
+                    <img src="save missing.png">
+            </div>
+
+            <div class="icon-item" data-name="Steve Jobs" 
+                data-desc="A pixel portrait of Apple’s co-founder. A tribute within the icon system.">
+                    <img src="steve jobs.png">
+            </div>
+
+            <div class="icon-item" data-name="Trash Can" 
+                data-desc="Used to discard files. Items can often be recovered unless emptied.">
+                    <img src="trash can.svg">
+            </div>
+
+            <div class="icon-item" data-name="Volume" 
+                data-desc="Represents sound control. Indicates audio levels.">
+                    <img src="volume.png">
+            </div>
+
+            <div class="icon-item" data-name="Watch" 
+                data-desc="A time-related icon often used during loading. Suggests waiting.">
+                    <img src="watch.svg">
+            </div>
         </div>
     </div>
+
+    <div class="mac-window preview-window hidden" id="icons-preview">
+        <div class="title-bar">
+            <span class="box"></span>
+            <span class="title">preview</span>
+        </div>
+            
+        <div class="preview-content">
+            <img id="preview-image">
+            <h2 id="preview-name">Select an icon.</h2>
+            <p id="preview-desc"></p>
+        </div>
+    </div>
+
+<!-- TYPOGRAPHY WINDOWS -->
+    <div class="mac-window library-window hidden" id="typography-window">
+        <div class="title-bar">
+            <span class="box"></span>
+             <span class="title">library</span>
+        </div>
+
+        <div class="window-content typography-library">
+            <div class="type-item"
+                data-name="Chicago"
+                data-desc="Chicago was designed for early Macintosh interfaces. It was optimized for low-resolution screens and became the system font.">
+                <p class="type-preview chicago">Chicago</p>
+            </div>
+
+            <div class="type-item" 
+                data-name="San Francisco"
+                data-desc="San Francisco is Apple’s modern system typeface, designed for clarity across digital interfaces and multiple screen sizes.">
+                <p class="type-preview san-francisco">San Francisco</p>
+            </div>
+
+            <div class="type-item"
+                data-name="Monaco"
+                data-desc="Monaco is a monospaced font used for coding and system displays.">
+                <p class="type-preview monaco">Monaco</p>
+            </div>
+
+            <div class="type-item"
+                data-name="Geneva"
+                data-desc="Geneva is a classic Macintosh sans-serif font designed for legibility in menus, dialogs, and interface labels.">
+                <p class="type-preview geneva">Geneva</p>
+            </div>
+
+            <div class="type-item"
+                data-name="Los Angeles"
+                data-desc="Los Angeles is a playful bitmap-style font from early Macintosh systems, often used for decorative interface elements.">
+                <p class="type-preview los-angeles">Los Angeles</p>
+            </div>
+
+            <div class="type-item"
+                data-name="Toronto"
+                data-desc="Toronto is a serif bitmap font used in early Macintosh environments, offering a more editorial and text-heavy feel.">
+                <p class="type-preview toronto">Toronto</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="mac-window preview-window hidden" id="type-preview">
+        <div class="title-bar">
+            <span class="box"></span>
+            <span class="title">scale</span>
+        </div>
+
+        <div class="preview-content">
+            <p id="type-sample">
+                The quick brown fox jumps over the lazy dog.
+            </p>
+            <input type="range" id="type-size" min="10" max="200" value="72">
+        </div>
+    </div>
+
+    <div class="mac-window preview-window hidden" id="charset-window">
+        <div class="title-bar">
+            <span class="box"></span>
+            <span class="title">preview</span>
+        </div>
+
+        <div class="preview-content">
+            <h2 id="type-name"></h2>
+            <p id="type-desc"></p>
+
+            <div id="charset-sample">
+                <div class="charset-line">ABCDEFGHIJKLMNOPQRSTUVWXYZ</div>
+                <div class="charset-line">abcdefghijklmnopqrstuvwxyz</div>
+                <div class="charset-line">0123456789</div>
+                <div class="charset-line">!@#$%^&*(){}[]<>?/\\</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- APPLICATIONS WINDOWS -->
+    <div class="mac-window library-window hidden" id="applications-window">
+        <div class="title-bar">
+            <span class="box"></span>
+            <span class="title">applications</span>
+        </div>
+
+        <div class="window-content centered">
+            <p>Applications coming soon.</p>
+        </div>
     </div>
 
 </main>

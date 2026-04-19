@@ -1,68 +1,212 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener("DOMContentLoaded", () => {
 
-const windowEl = document.querySelector(".mac-window");
-const titleBar = document.querySelector(".title-bar");
+  /* =========================
+     GLOBAL WINDOW BEHAVIOR
+  ========================== */
 
-    let isDragging = false;
+  const windows = document.querySelectorAll(".mac-window");
+  const trash = document.querySelector(".trash");
+
+  let zIndex = 100;
+
+  windows.forEach(win => {
+    const titleBar = win.querySelector(".title-bar");
+
+    let dragging = false;
     let offsetX = 0;
     let offsetY = 0;
 
-titleBar.addEventListener("mousedown", (e) => {
-  isDragging = true;
+    if (!titleBar) return;
 
-  const rect = windowEl.getBoundingClientRect();
-  offsetX = e.clientX - rect.left;
-  offsetY = e.clientY - rect.top;
+    titleBar.addEventListener("mousedown", (e) => {
+      dragging = true;
 
-  windowEl.style.position = "absolute";
-});
+      const rect = win.getBoundingClientRect();
+      offsetX = e.clientX - rect.left;
+      offsetY = e.clientY - rect.top;
 
-document.addEventListener("mousemove", (e) => {
-  if (!isDragging) return;
+      win.style.position = "absolute";
 
-  windowEl.style.left = `${e.clientX - offsetX}px`;
-  windowEl.style.top = `${e.clientY - offsetY}px`;
-});
+      zIndex++;
+      win.style.zIndex = zIndex;
+    });
 
-const trash = document.querySelector(".trash");
+    document.addEventListener("mousemove", (e) => {
+      if (!dragging) return;
 
-document.addEventListener("mouseup", () => {
-  if (!isDragging) return;
+      win.style.left = `${e.clientX - offsetX}px`;
+      win.style.top = `${e.clientY - offsetY}px`;
+    });
 
-  isDragging = false;
+    document.addEventListener("mouseup", () => {
+      dragging = false;
 
-  const windowRect = windowEl.getBoundingClientRect();
-  const trashRect = trash.getBoundingClientRect();
+      if (!trash) return;
 
-  const isOverlapping =
-    windowRect.right > trashRect.left &&
-    windowRect.left < trashRect.right &&
-    windowRect.bottom > trashRect.top &&
-    windowRect.top < trashRect.bottom;
+      const w = win.getBoundingClientRect();
+      const t = trash.getBoundingClientRect();
 
-  if (isOverlapping) {
-    // delete window
-    windowEl.style.display = "none";
-  }
-});
+      const overlap =
+        w.right > t.left &&
+        w.left < t.right &&
+        w.bottom > t.top &&
+        w.top < t.bottom;
 
-})
-
-/* WORKS - ICONS */
-
-const icons = document.querySelectorAll(".icon-item");
-const previewImg = document.getElementById("preview-image");
-const previewName = document.getElementById("preview-name");
-const previewDesc = document.getElementById("preview-desc");
-
-icons.forEach(icon => {
-  icon.addEventListener("click", () => {
-    const img = icon.querySelector("img").src;
-    const name = icon.dataset.name;
-    const desc = icon.dataset.desc;
-
-    previewImg.src = img;
-    previewName.textContent = name;
-    previewDesc.textContent = desc;
+      if (overlap) {
+        win.style.display = "none";
+      }
+    });
   });
+
+
+  /* =========================
+     ICON SYSTEM
+  ========================== */
+
+  const icons = document.querySelectorAll(".icon-item");
+  const previewImg = document.getElementById("preview-image");
+  const previewName = document.getElementById("preview-name");
+  const previewDesc = document.getElementById("preview-desc");
+
+  icons.forEach(icon => {
+    icon.addEventListener("click", () => {
+
+      icons.forEach(i => i.classList.remove("selected"));
+      icon.classList.add("selected");
+
+      if (!previewImg || !previewName || !previewDesc) return;
+
+      previewImg.src = icon.querySelector("img").src;
+      previewName.textContent = icon.dataset.name;
+      previewDesc.textContent = icon.dataset.desc;
+    });
+  });
+
+
+  /* =========================
+     WINDOW OPEN / CLOSE
+  ========================== */
+
+  const openIconsBtn = document.getElementById("open-icons");
+  const openTypographyBtn = document.getElementById("open-typography");
+  const openApplicationsBtn = document.getElementById("open-applications");
+
+  const iconsLibrary = document.getElementById("icons-library");
+  const iconsPreview = document.getElementById("icons-preview");
+  const typographyWindow = document.getElementById("typography-window");
+  const typePreview = document.getElementById("type-preview");
+  const applicationsWindow = document.getElementById("applications-window");
+
+  function closeAll() {
+    document.querySelectorAll(".mac-window").forEach(w => {
+      w.classList.add("hidden");
+    });
+  }
+
+  if (openIconsBtn) {
+    openIconsBtn.addEventListener("click", () => {
+      closeAll();
+      iconsLibrary?.classList.remove("hidden");
+      iconsPreview?.classList.remove("hidden");
+    });
+  }
+
+  if (openTypographyBtn) {
+    openTypographyBtn.addEventListener("click", () => {
+      closeAll();
+      typographyWindow?.classList.remove("hidden");
+    });
+  }
+
+  if (openApplicationsBtn) {
+    openApplicationsBtn.addEventListener("click", () => {
+      closeAll();
+      applicationsWindow?.classList.remove("hidden");
+    });
+  }
+
+
+  /* =========================
+     TYPOGRAPHY SYSTEM (FIXED SCALE)
+  ========================== */
+
+  const typeItems = document.querySelectorAll(".type-item");
+
+  const typeName = document.getElementById("type-name");
+  const typeDesc = document.getElementById("type-desc");
+  const typeSample = document.getElementById("type-sample");
+  const typeSize = document.getElementById("type-size");
+  const charsetWindow = document.getElementById("charset-window");
+  const charsetSample = document.getElementById("charset-sample");
+
+  if (!typeItems.length) return;
+
+
+  function fitTextToWindow() {
+    const padding = 40;
+    const maxHeight =
+      typePreview.querySelector(".preview-content").clientHeight - padding;
+
+    const size = parseInt(typeSize.value);
+
+    typeSample.style.fontSize = size + "px";
+
+    // only warn constraint visually instead of forcing shrink
+    if (typeSample.scrollHeight > maxHeight) {
+      typeSample.style.outline = "1px solid red"; // optional debug indicator
+    } else {
+      typeSample.style.outline = "none";
+    }
+  }
+
+
+  typeItems.forEach(item => {
+    item.addEventListener("click", () => {
+
+      typeItems.forEach(i => i.classList.remove("selected"));
+      item.classList.add("selected");
+
+      const name = item.dataset.name;
+      const desc = item.dataset.desc;
+      const fontClass = item.querySelector("p").classList[1];
+
+      if (typeName) typeName.textContent = name;
+      if (typeDesc) typeDesc.textContent = desc;
+
+      if (typeSample) {
+        typeSample.className = "";
+        typeSample.classList.add(fontClass);
+      }
+
+      if (charsetSample) {
+        charsetSample.className = "";
+        charsetSample.classList.add(fontClass);
+      }
+
+      if (typeName) typeName.className = fontClass;
+      if (typeDesc) typeDesc.className = fontClass;
+
+      if (typePreview) {
+        typePreview.classList.remove("hidden");
+        typePreview.style.left = "500px";
+        typePreview.style.top = "100px";
+      }
+
+      if (charsetWindow) {
+        charsetWindow.classList.remove("hidden");
+        charsetWindow.style.left = "900px";
+        charsetWindow.style.top = "160px";
+      }
+
+      requestAnimationFrame(() => {
+        requestAnimationFrame(fitTextToWindow);
+      });
+    });
+  });
+
+
+  if (typeSize) {
+    typeSize.addEventListener("input", fitTextToWindow);
+  }
+
 });
