@@ -5,9 +5,8 @@ document.addEventListener("DOMContentLoaded", () => {
   ========================== */
 
   const windows = document.querySelectorAll(".mac-window");
-  const trash = document.querySelector(".trash");
 
-  let zIndex = 100;
+  let zIndex = 1000;
 
   windows.forEach(win => {
     const titleBar = win.querySelector(".title-bar");
@@ -19,6 +18,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!titleBar) return;
 
     titleBar.addEventListener("mousedown", (e) => {
+      if (document.body.classList.contains("about-page")) return;
+
       dragging = true;
 
       const rect = win.getBoundingClientRect();
@@ -40,51 +41,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.addEventListener("mouseup", () => {
       dragging = false;
-
-      if (!trash) return;
-
-      const w = win.getBoundingClientRect();
-      const t = trash.getBoundingClientRect();
-
-      const overlap =
-        w.right > t.left &&
-        w.left < t.right &&
-        w.bottom > t.top &&
-        w.top < t.bottom;
-
-      if (overlap) {
-        win.style.display = "none";
-      }
     });
   });
 
 
   /* =========================
-     ICON SYSTEM
-  ========================== */
-
-  const icons = document.querySelectorAll(".icon-item");
-  const previewImg = document.getElementById("preview-image");
-  const previewName = document.getElementById("preview-name");
-  const previewDesc = document.getElementById("preview-desc");
-
-  icons.forEach(icon => {
-    icon.addEventListener("click", () => {
-
-      icons.forEach(i => i.classList.remove("selected"));
-      icon.classList.add("selected");
-
-      if (!previewImg || !previewName || !previewDesc) return;
-
-      previewImg.src = icon.querySelector("img").src;
-      previewName.textContent = icon.dataset.name;
-      previewDesc.textContent = icon.dataset.desc;
-    });
-  });
-
-
-  /* =========================
-     WINDOW OPEN / CLOSE
+     WINDOW OPEN / CLOSE SYSTEM
   ========================== */
 
   const openIconsBtn = document.getElementById("open-icons");
@@ -126,8 +88,52 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
+/* =========================
+   STARTUP SEQUENCE (WITH FADE)
+========================== */
+
+const startupWindow = document.getElementById("startup-window");
+const mainWindow = document.getElementById("main-window");
+const helloGif = document.querySelector(".hello-gif");
+
+if (startupWindow && mainWindow) {
+  setTimeout(() => {
+
+    startupWindow.classList.add("hidden");
+    mainWindow.classList.remove("hidden");
+
+    if (helloGif) {
+      helloGif.classList.add("fade-in");
+    }
+
+  }, 2600);
+}
+
   /* =========================
-     TYPOGRAPHY SYSTEM (FIXED SCALE)
+     ICON SYSTEM
+  ========================== */
+
+  const icons = document.querySelectorAll(".icon-item");
+  const previewImg = document.getElementById("preview-image");
+  const previewName = document.getElementById("preview-name");
+  const previewDesc = document.getElementById("preview-desc");
+
+  icons.forEach(icon => {
+    icon.addEventListener("click", () => {
+      icons.forEach(i => i.classList.remove("selected"));
+      icon.classList.add("selected");
+
+      if (!previewImg || !previewName || !previewDesc) return;
+
+      previewImg.src = icon.querySelector("img").src;
+      previewName.textContent = icon.dataset.name;
+      previewDesc.textContent = icon.dataset.desc;
+    });
+  });
+
+
+  /* =========================
+     TYPOGRAPHY SYSTEM
   ========================== */
 
   const typeItems = document.querySelectorAll(".type-item");
@@ -139,74 +145,59 @@ document.addEventListener("DOMContentLoaded", () => {
   const charsetWindow = document.getElementById("charset-window");
   const charsetSample = document.getElementById("charset-sample");
 
-  if (!typeItems.length) return;
+  if (typeItems.length) {
 
-
-  function fitTextToWindow() {
-    const padding = 40;
-    const maxHeight =
-      typePreview.querySelector(".preview-content").clientHeight - padding;
-
-    const size = parseInt(typeSize.value);
-
-    typeSample.style.fontSize = size + "px";
-
-    // only warn constraint visually instead of forcing shrink
-    if (typeSample.scrollHeight > maxHeight) {
-      typeSample.style.outline = "1px solid red"; // optional debug indicator
-    } else {
-      typeSample.style.outline = "none";
+    function fitTextToWindow() {
+      const size = parseInt(typeSize.value);
+      typeSample.style.fontSize = size + "px";
     }
-  }
 
+    typeItems.forEach(item => {
+      item.addEventListener("click", () => {
 
-  typeItems.forEach(item => {
-    item.addEventListener("click", () => {
+        typeItems.forEach(i => i.classList.remove("selected"));
+        item.classList.add("selected");
 
-      typeItems.forEach(i => i.classList.remove("selected"));
-      item.classList.add("selected");
+        const name = item.dataset.name;
+        const desc = item.dataset.desc;
+        const fontClass = item.querySelector("p").classList[1];
 
-      const name = item.dataset.name;
-      const desc = item.dataset.desc;
-      const fontClass = item.querySelector("p").classList[1];
+        if (typeName) typeName.textContent = name;
+        if (typeDesc) typeDesc.textContent = desc;
 
-      if (typeName) typeName.textContent = name;
-      if (typeDesc) typeDesc.textContent = desc;
+        if (typeSample) {
+          typeSample.className = "";
+          typeSample.classList.add(fontClass);
+        }
 
-      if (typeSample) {
-        typeSample.className = "";
-        typeSample.classList.add(fontClass);
-      }
+        if (charsetSample) {
+          charsetSample.className = "";
+          charsetSample.classList.add(fontClass);
+        }
 
-      if (charsetSample) {
-        charsetSample.className = "";
-        charsetSample.classList.add(fontClass);
-      }
+        if (typeName) typeName.className = fontClass;
+        if (typeDesc) typeDesc.className = fontClass;
 
-      if (typeName) typeName.className = fontClass;
-      if (typeDesc) typeDesc.className = fontClass;
+        if (typePreview) {
+          typePreview.classList.remove("hidden");
+          typePreview.style.left = "500px";
+          typePreview.style.top = "100px";
+        }
 
-      if (typePreview) {
-        typePreview.classList.remove("hidden");
-        typePreview.style.left = "500px";
-        typePreview.style.top = "100px";
-      }
+        if (charsetWindow) {
+          charsetWindow.classList.remove("hidden");
+          charsetWindow.style.left = "900px";
+          charsetWindow.style.top = "160px";
+        }
 
-      if (charsetWindow) {
-        charsetWindow.classList.remove("hidden");
-        charsetWindow.style.left = "900px";
-        charsetWindow.style.top = "160px";
-      }
-
-      requestAnimationFrame(() => {
-        requestAnimationFrame(fitTextToWindow);
+        requestAnimationFrame(() => {
+          requestAnimationFrame(fitTextToWindow);
+        });
       });
     });
-  });
 
-
-  if (typeSize) {
-    typeSize.addEventListener("input", fitTextToWindow);
+    if (typeSize) {
+      typeSize.addEventListener("input", fitTextToWindow);
+    }
   }
-
-});
+})

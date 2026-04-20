@@ -37,30 +37,32 @@
 </header>
 
 <main class="desktop argent-pixel-regular">
-    <div class="desktop-icon disk">
-        <div class="icon-graphic">
-            <img src="save.svg" alt="save icon">
-        </div>
-    </div>
 
-    <div class="desktop-icon trash">
-        <img src="trash can.svg" alt="trash can">
-        <span class="desktop-icon-name">Trash</span>
-    </div>
-
-    <div class="mac-window">
+    <div class="mac-window startup-window" id="startup-window">
         <div class="title-bar">
-            <div class="window-controls">
-                <span class="box">
-                </span>
-            </div>
-            <span class="title argent-pixel-regular">
-                welcome
-            </span>
+            <span class="box"></span>
+            <span class="title">system</span>
         </div>
 
-        <div class="canvas-area"> 
-            <img class="hello-gif" src="hello.gif" alt="Animated GIF">
+        <div class="window-content startup-content">
+            <p class="startup-text">Welcome to Susan Kare's portfolio</p>
+
+            <div class="loading-bar">
+                <div class="loading-fill"></div>
+            </div>
+
+            <p class="startup-subtext">Starting system…</p>
+        </div>
+    </div>
+
+    <div class="mac-window hidden" id="main-window">
+        <div class="title-bar">
+            <span class="box"></span>
+            <span class="title">welcome</span>
+        </div>
+
+        <div class="canvas-area">
+            <img class="hello-gif" src="hello.gif" alt="Hello">
         </div>
     </div>
 </main>
